@@ -4,8 +4,8 @@ on:
     # branches:
     #   - main
     #   - 'feature-*' # feature-dev, feture-test...
-    paths-ignore:
-      - '**/depolyment.yml' # if u changed atleast one file in this path, workflow do not run.
+    paths:
+      - '**/info.yml' # if u changed atleast one file in this path, workflow do not run.
   workflow_dispatch:
   pull_request:
     types:
