@@ -1,9 +1,9 @@
 name: deployment job
 on: 
   push:
-    # branches:
-    #   - main
-    #   - 'feature-*' # feature-dev, feture-test...
+    branches:
+      - main
+      - 'feature-*' # feature-dev, feture-test...
     paths:
       - '**/info.yml' # if u changed atleast one file in this path, workflow do not run.
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
       - opened
     branches:
       - main
-      - 'feature-*' # feature-dev, feture-test.
+      - 'feature-*' # feature-dev, feture-test...
 jobs:
     test:
         runs-on: ubuntu-latest
