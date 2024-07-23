@@ -12,7 +12,7 @@ on:
       - opened
     branches:
       - main
-      - 'feature-*' # feature-dev, feture-test...
+      - 'feature-*' # feature-dev, feture-test.
 jobs:
     test:
         runs-on: ubuntu-latest
