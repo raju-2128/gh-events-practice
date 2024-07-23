@@ -5,7 +5,7 @@ on:
       - main
       - 'feature-*' # feature-dev, feture-test...
     paths:
-      - '.github/workflows/*' # if u have to change atleast one file in this path, otherwise workflow do not run.
+      - '.github/workflows/*.yml' # if u have to change atleast one file in this path, otherwise workflow do not run.
   workflow_dispatch:
   pull_request:
     types:
