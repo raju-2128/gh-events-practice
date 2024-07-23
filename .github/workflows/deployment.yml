@@ -5,7 +5,7 @@ on:
       - main
       - 'feature-*' # feature-dev, feture-test...
     paths-ignore:
-      - '.github/workflows/*' # if u changed atleast one file in this path, workflow do not run.
+      - '.github\workflows\*' # if u changed atleast one file in this path, workflow do not run.
   workflow_dispatch:
   pull_request:
     types:
