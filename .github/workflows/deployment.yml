@@ -1,0 +1,46 @@
+name: deployment job
+on: 
+  push:
+    branches:
+      - main
+      - 'feature-*' # feature-dev, feture-test...
+    paths-ignore:
+      - '.github/workflows/*' # if u changed atleast one file in this path, workflow do not run.
+  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+      - 'feature-*' # feature-dev, feture-test...
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get the code
+              uses: actions/checkout@v4
+            - name: install node-js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: install dependencies
+              run: npm ci
+            - name: run test
+              run: npm test
+    deploy:
+      needs: test
+      runs-on: ubuntu-latest
+      steps:
+          - name: Get the code
+            uses: actions/checkout@v4
+          - name: install node-js
+            uses: actions/setup-node@v4
+            with:
+              node-version: 18
+          - name: install dependencies
+            run: npm ci
+          - name: build project
+            run: npm run build
+          - name: Deploying
+            run: echo "deploying........."                            
+            
